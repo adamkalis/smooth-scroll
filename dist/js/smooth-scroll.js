@@ -6,7 +6,9 @@
  */
 
 (function (root, factory) {
-	if ( typeof define === 'function' && define.amd ) {
+  if (typeof Package !== 'undefined') { // Meteor
+    smoothScroll = factory(root);
+  } else if ( typeof define === 'function' && define.amd ) {
 		define([], factory(root));
 	} else if ( typeof exports === 'object' ) {
 		module.exports = factory(root);
